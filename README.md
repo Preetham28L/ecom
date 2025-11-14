@@ -9,6 +9,7 @@ Create a new folder and open it in Cursor.
 Run this prompt to generate five synthetic CSV files:
 
 Prompt 1
+
 I need to generate synthetic e-commerce data for an Online Bookstore. Please provide 5 separate CSV files with about 20 rows of data in each:
 members.csv (columns: member_id, full_name, email, membership_level)
 authors.csv (columns: author_id, author_name, country)
@@ -23,6 +24,7 @@ Step 2 — Ingest Data into SQLite (ingest.py)
 Create a Python script named ingest.py using this prompt:
 
 Prompt 2
+
 Write a Python script named ingest.py to load this e-commerce data into a database.
 
 Please use the context from my files: @members.csv, @authors.csv,
