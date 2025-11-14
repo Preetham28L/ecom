@@ -8,7 +8,7 @@ Step 1 — Generate Synthetic CSV Files (Cursor Prompt)
 Create a new folder and open it in Cursor.
 Run this prompt to generate five synthetic CSV files:
 
-Prompt 1
+-Prompt 1
 
 I need to generate synthetic e-commerce data for an Online Bookstore. Please provide 5 separate CSV files with about 20 rows of data in each:
 members.csv (columns: member_id, full_name, email, membership_level)
@@ -23,7 +23,7 @@ Step 2 — Ingest Data into SQLite (ingest.py)
 
 Create a Python script named ingest.py using this prompt:
 
-Prompt 2
+-Prompt 2
 
 Write a Python script named ingest.py to load this e-commerce data into a database.
 
@@ -52,7 +52,7 @@ Step 3 — Query the Data (query.py)
 
 Create the analytics script query.py using this prompt:
 
-Prompt 3
+-Prompt 3
 Create a Python script named query.py.
 
 The script should:
@@ -71,6 +71,20 @@ Run the query script
 python3 query.py
 
 Then choose option 1 to run the revenue analysis.
+
+-SQL Query for Author Revenue Report
+
+SELECT
+    authors.author_name AS AuthorName,
+    books.title AS BookTitle,
+    SUM(books.price * order_details.quantity) AS TotalSalesAmount
+FROM authors
+JOIN books ON authors.author_id = books.author_id
+JOIN order_details ON books.book_id = order_details.book_id
+JOIN orders ON order_details.order_id = orders.order_id
+JOIN members ON orders.member_id = members.member_id
+GROUP BY authors.author_name, books.title
+ORDER BY TotalSalesAmount DESC;
 
 Summary
 
